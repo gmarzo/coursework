@@ -1,0 +1,143 @@
+/**
+ * Classwork 5 - Report
+ * Collect all answers to runtime analysis problems here.
+ * 
+ * GROUP MEMBERS:
+ *   1. - Garrett Marzo
+ *   2. - Jennifer Siao
+ *   3. -
+ */
+
+ 
+// -------------------------------------------------------
+// Problem 1
+// -------------------------------------------------------
+ 
+/**
+ * Assumptions:
+ *  - Let ... n = number of words in the input sentence.
+ *  - Worst Case Assumption: If all words in the sentence are unique from one another.
+ */
+
+/**
+ * Returns the number of unique, unrepeated words that are found
+ * in the given sentence sent
+ * NOTE: This solution is not very good!!! It can be simplified
+ * by using ArrayLists, but even those aren't the best choice here!
+ * @param sent The sentence in which to count unique words
+ * @return The number of unique, unrepeated words in sent
+ */
+public static int uniqueWords (String sent) {               // Costs
+    String[] words = sent.split(" ");                       // c_1
+    String currWord, compWord;                              // c_2
+    int count = 0;                                          // c_3
+
+    // Compare each pair of words (again, warning: not great)
+    for (int i = 0; i < words.length; i++) {                // c_4 * n
+        boolean repeatFound = false;                        // c_5 * n
+        currWord = words[i];                                // c_6 * n
+        if (currWord.equals("")) { continue; }              // c_7 * n
+        
+        for (int j = 0; j < words.length; j++) {            // c_8 * n * n
+            compWord = words[j];                            // c_9 * n * n
+            if (currWord.equals(compWord) && i != j) {      // c_10 * n * n
+                repeatFound = true;                         // c_11 * n * n
+                break;
+            }
+        }
+        
+        // Only increment the count for the first occurrence of each match
+        count += (repeatFound) ? 0 : 1;                     // c_12 * n
+    }
+
+    return count;                                           // c_13
+}
+
+/*
+ * Total Cost Analysis:
+ *   T(n) = c_1 + c_2 + c_3 + c_13 + n(c_4 + c_5 + c_6 + c_7 +c_12) + n^2(c_8 + c_9 + c_10 + c_11)
+ *        = O(1) + O(1) * n + O(1) * n^2
+ *        = O(n^2)
+ */
+ 
+ 
+// -------------------------------------------------------
+// Problem 2
+// -------------------------------------------------------
+
+/**
+ * Assumptions:
+ *  - Let ... n = size of input ArrayList
+ *  - Worst Case Assumption: n is large and requires the shifting of every element. 
+ */
+public static ArrayList<String> reverse_A (ArrayList<String> arr) {     // Costs
+    ArrayList<String> result = new ArrayList<String>();                 // c_1
+    for (int i = 0; i < arr.size(); i++) {                              // c_2 * n 
+        result.add(0, arr.get(i));                                      // c_3 * n * n * 1  //.add(index, element) is O(1)*n, .get is O(1)
+    }
+    return result;                                                      // c_4 
+}
+  
+public static ArrayList<String> reverse_B (ArrayList<String> arr) {
+    ArrayList<String> result = new ArrayList<String>();                 // c_5 
+    for (int i = arr.size() - 1; i >= 0; i--) {                         // c_6 * n
+        result.add(arr.get(i));                                         // c_7 * n * 1  //.add is O(1), .get is O(1)
+    }
+    return result;                                                      // c_8 
+}
+
+/*
+ * Total Cost Analysis:
+ *   T(n) = c_1 + c_4 + c_2 * n + c_3 * n * n * 1 
+ *        = c_1 + c_4 + c_2 * n + c_3 * n^2 * 1
+ *        = O(1) + O(1) * n + O(1) * n^2
+ *        = O(1) + O(n) + O(n^2) 
+ *        = O(n^2) 
+ *
+ *  T(n) = c_5 + c_8 + n(c_6 + c_7)
+ *       = O(1) + O(1) * n
+ *       = O(1) + O(n) 
+ *       = O(n) 
+ *   //are we supposed to calculate some total runtime between the two? or is this it? 
+ */
+ 
+ 
+// -------------------------------------------------------
+// Problem 3
+// -------------------------------------------------------
+
+/**
+ * Assumptions:
+ *  - Let ... n = a1.length and m = a2.length
+ *  - Worst Case Assumption: Both array a1 and a2 have a max size of 2,147,483,647
+ */
+public static boolean isSubset (int[] a1, int[] a2) {       // Costs
+    for (int i = 0; i < a1.length; i++) {                   // c_1 * n 
+        boolean contained = false;                          // c_2 * n
+        for (int j = 0; j < a2.length; j++) {               // c_3 * n * m
+            if (a1[i] == a2[j]) {                           // c_4 * n * m
+                contained = true;                           // c_5 * n * m 
+                break;
+            }
+        }
+        if (!contained) {return false;}                     // c_6 * n
+    }
+    return true;                                            // c_7
+}
+
+/*
+ * Total Cost Analysis:
+ *   T(n,m) = c_7 + n(c_1 + c_2 + c_6) + n * m(c_3 + c_4 + c_5) 
+ *          = O(1) + O(1) * n + O(1) * (n * m)
+ *          = O(n * m)
+ */
+ 
+ 
+// -------------------------------------------------------
+// FINAL ANSWERS
+// Please collect your final answers to the above, below
+// -------------------------------------------------------
+
+1. O(n^2)
+2. O(n^2)
+3. O(n*m)

@@ -1,0 +1,43 @@
+/**
+ * Classwork 6 - Master Theorem Exercises
+ * Collect all answers to runtime analysis problems here.
+ */
+ 
+ // ----------------------------------------------------------
+ // Instructions: find a tight asymptotic runtime performance
+ // bound on each of the following recurrences for divide-
+ // and-conquer algorithms using the Master Theorem. First,
+ // (a) decide whether the Master Theorem applies, and (b)
+ // if it does, determine which case is matched, and then (c)
+ // determine the tight asymptotic bound on T(n).
+ // ----------------------------------------------------------
+ 
+1. T(n) = 8 * T(n / 2) + n
+  a. The Master Theorem applies
+  b. Decomposition Dominant
+  c. T(n) = Θ(n^3)
+   
+2. T(n) = 6 * T(n / 3) + n^2
+  a. The Master Theorem applies
+  b. Recomposition Dominant
+  c. T(n) = Θ(n^2)
+
+3. T(n) = 0.5 * T(n / 2) + n
+  a. The Master Theorem does not apply
+  b. n/a
+  c. n/a
+
+4. T(n) = T(n) + n/2
+  a. The Master Theorem does not apply
+  b. n/a
+  c. n/a
+
+5. T(n) = 5 * T(n / 5) + n/5
+  a. The Master Theorem applies
+  b. Neither Dominant
+  c. T(n) = Θ(n^1 * log(n))
+
+6. T(n) = 64 * T(n / 4) + n^3
+  a. The Master Theorem applies
+  b. Neither Dominant
+  c. T(n) = Θ(n^3 * log(n))
