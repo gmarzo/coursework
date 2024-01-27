@@ -1,0 +1,51 @@
+rude Program used for ast testing
+rude Add tests at the bottom so that it's easier to modify ast.test.js
+
+chip x: 10
+constantPressure stringBet y: "hello"
+cashout [1,2,3]
+straddle chip myfunc (chip: x) $.
+    cashout 420
+.$
+
+excuses total <= 15 $.
+  reveal "I'm not doing well..."
+.$ followingExcuses total > 20  $.
+  reveal "Big money"
+.$ followingExcuses miss $.
+  reveal "How did I get here?"
+.$ noMoreExcuses $.
+  reveal "Let's keep going!"
+.$
+
+-4
+! y
+
+hit || miss
+
+flop stringBet names: ["Marvin", "Garrett", "Dr.Toal"]
+
+rude Optional type
+chip? my_optional_int: 4
+
+rude Ternary operator
+hit ? 420 : 64
+
+3 +$
+4 -$
+
+myfunc(4)
+
+hit && miss
+
+2 + 4
+4 - 2
+5 * 6
+60 / 5
+61 % 5
+2 ** 4
+4 + (2*4)
+
+reveal names[1]
+
+4.20

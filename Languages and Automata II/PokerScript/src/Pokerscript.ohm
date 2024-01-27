@@ -1,0 +1,97 @@
+PokerScript {
+    Program             = Statement+
+
+    Statement           = const? Type id ":" Exp                        -- vardec
+                        | straddle Type id "(" Params ")" Block         -- fundec
+                        | Assign                                        -- assign
+                        | Bump                                          -- bump
+                        | fold                                          -- break
+                        | print Exp                                     -- print
+                        | return Exp1                                   -- return
+                        | contemplating Exp Block                       -- while
+                        | excuses Exp Block Elif* Else?                 -- ifStmt
+                        | ForLoop
+                        | Exp
+                
+    ForLoop             = playingLoose "(" LoopDec "," Exp "," Bump ")" Block
+    LoopDec             = chip id ":" Exp
+    Bump                = Exp7 ("+$" | "-$") 
+    Elif                = followingExcuses Exp Block
+    Else                = noMoreExcuses Block
+    Assign              = Exp7 (":" | "incrementBy" | "decrementBy") Exp
+    Inst                = Type ":" id      
+    Block               = "$." Statement* ".$"
+    Call                = id "(" Args ")"
+    Params              = ListOf<Inst, ",">
+    Args                = ListOf<Exp, ","> 
+    Type                = Type "?"                                      -- optional
+                        | flop Type                                     -- array
+                        | chip 
+                        | playingOnTilt 
+                        | change 
+                        | stringBet                                        
+
+    Exp                 = ("-" | "!") Exp                               -- unary
+                        | Exp1 "?" Exp2 ":" Exp1                        -- ternary
+                        | Exp1
+    Exp1                = Exp1 "||" Exp2                                -- binary
+                        | Exp2
+    Exp2                = Exp2 "&&" Exp3                                -- binary
+                        | Exp3
+    Exp3                = Exp4 ("<="|"<"|"=="|"!="|">="|">") Exp4       -- binary
+                        | Exp4
+    Exp4                = Exp4 ("+" | "-") Exp5                         -- binary
+                        | Exp5
+    Exp5                = Exp5 ("*" | "/" | "%") Exp6                   -- binary
+                        | Exp6
+    Exp6                = Exp7 "**" Exp6                                -- binary
+                        | Exp7
+    Exp7                =  floatLit
+                        | intLit
+                        | hit
+                        | miss
+                        | Call
+                        | "(" Exp ")"                                   -- parens
+                        | Exp7 "[" Exp "]"                              -- subscript
+                        | id
+                        | "[]" "(" Type ")"                             -- emptyarray
+                        | "[" NonemptyListOf<Exp, ","> "]"              -- arrayexp
+                        | stringlit                                        
+            
+    stringlit           = "\"" char* "\""  
+    floatLit            = digit+ "." digit+ (("E"|"e") ("-")? digit+)?
+    intLit              = digit+                 
+    char                = ~control ~"\\" ~"\"" any
+                        | "\\" ("n" | "t" | "\"" | "\'" | "\\")         -- escape
+                        | "\\u{" hex hex? hex? hex? hex? hex? "}"       -- codepoint
+
+    control             = "\x00".."\x1f" | "\x80".."\x9f"
+    hex                 = hexDigit
+
+    const               = "constantPressure" ~idchar
+    rude                = "rude" ~idchar
+    fold                = "fold" ~idchar
+    excuses             = "excuses" ~idchar
+    followingExcuses    = "followingExcuses" ~idchar
+    noMoreExcuses       = "noMoreExcuses" ~idchar
+    print               = "reveal" ~idchar
+    return              = "cashout" ~idchar
+    straddle            = "straddle" ~idchar
+    contemplating       = "contemplating" ~idchar
+    playingLoose        = "playingLoose" ~idchar
+    action              = "action" ~idchar
+    hit                 = "hit" ~idchar
+    miss                = "miss" ~idchar
+    chip                = "chip" ~idchar
+    flop                = "flop" ~idchar
+    playingOnTilt       = "playingOnTilt" ~idchar
+    change              = "change" ~idchar
+    stringBet           = "stringBet" ~idchar
+    num                 = digit+ ("." digit+)? (("E" | "e") ("+" | "-")? digit+)?
+    id                  = ~keyword letter idchar*
+    idchar              = letter | digit | "_"
+    keyword             = straddle | contemplating | hit | miss | playingLoose | action
+
+    space               += "rude/" (~"/rude" any)* "/rude"              -- multicomment
+                         | "rude" (~ "\n" any)* ("\n"|end)              -- comment
+}

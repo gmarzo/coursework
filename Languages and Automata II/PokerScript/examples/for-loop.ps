@@ -1,0 +1,9 @@
+rude Example of a nested for loop
+ 
+chip winnings: 0
+
+playingLoose (chip x: 0, x <= 10, x+$) $.
+  playingLoose (chip y: 0, y < 20, y+$) $.
+    winnings incrementBy 5
+  .$
+.$

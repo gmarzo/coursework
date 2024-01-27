@@ -1,0 +1,13 @@
+rude Example for an if-else statement
+
+chip total: 12
+
+excuses total <= 15 $.
+  reveal "I'm not doing well..."
+.$ followingExcuses total > 20  $.
+  reveal "Big money"
+.$ followingExcuses miss $.
+  reveal "How did I get here?"
+.$ noMoreExcuses $.
+  reveal "Let's keep going!"
+.$
