@@ -1,0 +1,24 @@
+{
+  "name": "cmsi3802-hw2",
+  "version": "1.0.0",
+  "description": "Compilers HW 2",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanscianc/cmsi3802-hw2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evanscianc/cmsi3802-hw2/issues"
+  },
+  "homepage": "https://github.com/evanscianc/cmsi3802-hw2#readme",
+  "devDependencies": {
+    "mocha": "^9.2.0"
+  }
+}
