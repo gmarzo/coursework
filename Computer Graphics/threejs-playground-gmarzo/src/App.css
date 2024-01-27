@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.App footer > * {
+  display: flex;
+  margin: 4px;
+}
+
+.App footer > * > * {
+  margin: 4px;
+}

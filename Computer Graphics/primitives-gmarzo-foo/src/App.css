@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+}
+
+.App nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 8px;
+}
+
+.App nav .current {
+  font-weight: bold;
+}
+
+.App main {
+  display: flex;
+  justify-content: center;
+  margin: 8px 16px;
+}
+
+.App .instructions-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+}
+
+.App .instructions-buttons > span {
+  display: flex;
+  margin: -4px;
+}
+
+.App .instructions-buttons > span > button {
+  margin: 4px;
+}
