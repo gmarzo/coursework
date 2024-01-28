@@ -1,0 +1,30 @@
+{
+  "name": "graph-db-mini-stack-whatever_-devil_emoji-_-shocked_emoji",
+  "version": "1.0.0",
+  "description": "**CMSI 3520** Database Systems, Fall 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmu-cmsi3520-fall2022/graph-db-mini-stack-whatever_-devil_emoji-_-shocked_emoji.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lmu-cmsi3520-fall2022/graph-db-mini-stack-whatever_-devil_emoji-_-shocked_emoji/issues"
+  },
+  "homepage": "https://github.com/lmu-cmsi3520-fall2022/graph-db-mini-stack-whatever_-devil_emoji-_-shocked_emoji#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "neo4j": "^2.0.0-RC2",
+    "neo4j-driver": "^5.2.0",
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.13",
+    "ts-node": "^10.9.1"
+  }
+}

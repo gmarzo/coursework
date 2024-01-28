@@ -1,0 +1,1 @@
+:START_ID(Reviewer),:END_ID(App),reviewId,reviewText,timeCreated:LONG,timeUpdated:LONG,recommended:BOOLEAN,playTime:INT
