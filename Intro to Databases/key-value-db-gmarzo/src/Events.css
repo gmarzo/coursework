@@ -1,0 +1,44 @@
+.Events-main {
+  column-gap: 16px;
+  display: grid;
+  grid-template:
+    'list detail' 100%
+    / 1fr 256px;
+  width: 100%;
+}
+
+.Events-list {
+  grid-area: list;
+  margin: 8px;
+}
+
+.Events-detail {
+  grid-area: detail;
+  margin: 8px;
+}
+
+.Events-error {
+  color: red;
+}
+
+.Events-empty {
+  margin: 32px;
+  text-align: center;
+}
+
+.Events-table {
+  width: 100%;
+}
+
+.Events-th {
+  border-bottom: 1px solid gray;
+}
+
+.Events-edit.active {
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.Events-peopleList {
+  padding: 0;
+}

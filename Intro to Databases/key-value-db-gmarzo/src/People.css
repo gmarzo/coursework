@@ -1,0 +1,40 @@
+.People-main {
+  column-gap: 16px;
+  display: grid;
+  grid-template:
+    'list detail' 100%
+    / 1fr 256px;
+  width: 100%;
+}
+
+.People-list {
+  grid-area: list;
+  margin: 8px;
+}
+
+.People-detail {
+  grid-area: detail;
+  margin: 8px;
+}
+
+.People-error {
+  color: red;
+}
+
+.People-empty {
+  margin: 32px;
+  text-align: center;
+}
+
+.People-table {
+  width: 100%;
+}
+
+.People-th {
+  border-bottom: 1px solid gray;
+}
+
+.People-edit.active {
+  font-style: italic;
+  font-weight: lighter;
+}

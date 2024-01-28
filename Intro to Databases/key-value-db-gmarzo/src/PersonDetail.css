@@ -1,0 +1,30 @@
+.PersonDetail-form {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 0 8px lightgray inset;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 64px);
+  margin: 16px;
+  padding: 16px;
+  row-gap: 16px;
+}
+
+.PersonDetail-error {
+  color: red;
+}
+
+.PersonDetail-label {
+  font-weight: 500;
+}
+
+.PersonDetail-input {
+  width: calc(100% - 8px);
+}
+
+.PersonDetail-actions {
+  column-gap: 16px;
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0 0;
+}

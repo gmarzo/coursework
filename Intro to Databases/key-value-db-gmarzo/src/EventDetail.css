@@ -1,0 +1,39 @@
+.EventDetail-form {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 0 8px lightgray inset;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 64px);
+  margin: 16px;
+  padding: 16px;
+  row-gap: 16px;
+}
+
+.EventDetail-error {
+  color: red;
+}
+
+.EventDetail-label {
+  font-weight: 500;
+}
+
+.EventDetail-input {
+  width: calc(100% - 8px);
+}
+
+.EventDetail-actions {
+  column-gap: 16px;
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0 0;
+}
+
+.EventDetail-peopleEmpty {
+  margin: 8px;
+  text-align: center;
+}
+
+.EventDetail-peopleList {
+  padding: 0 0 0 16px;
+}
